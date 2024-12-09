@@ -1,0 +1,36 @@
+services:
+    nginx:
+        build: .
+        container_name: nginx-app
+        ports:
+            - '8080:80'
+        volumes:
+            - ./src:/var/www/html
+            - ./logs/nginx:/var/log/nginx
+        depends_on:
+            - php
+
+    php:
+        image: php:8.2-fpm
+        container_name: php-app
+        volumes:
+            - ./src:/var/www/html
+            - ./logs/php:/var/log/php
+        depends_on:
+            - db
+
+    db:
+        image: mysql:8.0
+        container_name: mysql-db
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: mydb
+            MYSQL_USER: user
+            MYSQL_PASSWORD: password
+        ports:
+            - '3306:3306'
+        volumes:
+            - ./data:/var/lib/mysql
+
+volumes:
+    data:
