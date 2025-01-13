@@ -27,6 +27,13 @@ $products = [
   ],
 ];
 
-for ($i = 0; $i < count($products); $i++) {
-  echo "Product number: {$products[$i]['id']}";
+// for ($i = 0; $i < count($products); $i++) {
+//   echo "Product number: {$products[$i]['id']}";
+// }
+
+foreach ($products as $key => $value) {
+  echo "Product number: " . $value['id'] . "\n";
+  echo "Product name: " . $value['label'] . "\n";
+  echo "Category: " . $value['category'] . "\n";
+  echo "Price: " . $value['price'] . "$\n\n";
 }

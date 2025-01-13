@@ -1,0 +1,1 @@
+<a href="/product">Go to Product Page</a>
