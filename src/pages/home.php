@@ -1,1 +1,1 @@
-<a href="/product">Go to Product Page</a>
+<a href="pages/product.php">Go to Product Page</a>

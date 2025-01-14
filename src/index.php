@@ -19,9 +19,9 @@ switch ($request) {
     require 'pages/about.php';
     break;
 
-  default:
-    http_response_code(404);
-    require 'pages/404.php';
-    break;
+  // default:
+  //   http_response_code(404);
+  //   require 'pages/404.php';
+  //   break;
 }
 ;
