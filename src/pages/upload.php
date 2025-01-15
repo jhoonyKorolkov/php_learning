@@ -15,12 +15,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['files'])) {
     }
 
     $allowedTypes = ['image/jpeg', 'image/png'];
-    if (!in_array($files['type'][$index], $allowedTypes)) {
+    if (!in_array($files['type'][$index], haystack: $allowedTypes)) {
       echo "Недопустимый тип файла: $originalName<br>";
       continue;
     }
 
-    $maxFileSize = 1 * 1024 * 1024; // 1 МБ
+    $maxFileSize = 2 * 1024 * 1024;
     if ($files['size'][$index] > $maxFileSize) {
       echo "Файл превышает максимальный размер $maxFileSize: $originalName<br>";
       continue;

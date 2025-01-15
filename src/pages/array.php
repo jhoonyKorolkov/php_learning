@@ -39,3 +39,4 @@ $config['url'] = 'areaweb.su';
 
 // print_r($config);
 print_r($articles);
+
