@@ -1,19 +1,17 @@
 <?php
-// Очистка имени
-if (isset($_POST['clear'])) {
-  setcookie('name', '', time() - 3600, '/');
-  header('Location: cookies.php');
-  exit();
-}
+session_start();
 
-// Сохранение имени
-if (isset($_POST['name'])) {
-  setcookie('name', htmlspecialchars($_POST['name']), time() + 3600, '/');
-  header('Location: cookies.php');
-  exit();
-}
+$name = $_SESSION['name'] ?? null;
 
-$name = $_COOKIE['name'] ?? null;
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  if (isset($_POST['clear'])) {
+    unset($_SESSION['name']);
+    $name = null; // Обновляем значение переменной для текущего запроса
+  } elseif (isset($_POST['name'])) {
+    $_SESSION['name'] = htmlspecialchars($_POST['name']);
+    $name = $_SESSION['name'];
+  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +19,7 @@ $name = $_COOKIE['name'] ?? null;
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Куки</title>
+  <title>Сессии без перенаправления</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
