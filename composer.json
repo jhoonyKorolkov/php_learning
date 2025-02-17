@@ -1,0 +1,14 @@
+{
+    "name": "jhoony/test",
+    "autoload": {
+        "psr-4": {
+            "Classes\\": "classes/"
+        }
+    },
+    "authors": [
+        {
+            "name": "jhoony"
+        }
+    ],
+    "require": {}
+}

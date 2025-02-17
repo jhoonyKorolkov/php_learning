@@ -1,5 +1,5 @@
 <?php
-
+namespace Classes\Tearch;
 class Human
 {
   public $name;
